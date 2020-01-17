@@ -143,9 +143,13 @@ class ZohoOAuth
                 return new ZohoOAuthPersistenceHandler();
             }
             else{
+                //Modified : 
+                return new \App\CustomLibrary\ZohoCrm\ZohoOAuthLaravelPersistenceHandler();
+                /*
                 require_once  realpath(self::$configProperties[ZohoOAuthConstants::PERSISTENCE_HANDLER_CLASS]);
                 $str=self::$configProperties[ZohoOAuthConstants::PERSISTENCE_HANDLER_CLASS_NAME];
                 return new $str();
+                */
             }
         } catch (Exception $ex) {
             throw new ZohoOAuthException($ex);
